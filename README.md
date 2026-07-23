@@ -7,6 +7,8 @@
 > It is not affiliated with or endorsed by Meta. The original authorship and
 > copyright notices are preserved. This repository is distributed under the
 > [SAM License](LICENSE) and does not include model checkpoints.
+> The macOS porting changes and validation were developed with assistance from
+> OpenAI Codex. This does not imply endorsement or official support by OpenAI.
 
 Meta Superintelligence Labs
 
