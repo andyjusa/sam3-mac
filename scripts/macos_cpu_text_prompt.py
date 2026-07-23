@@ -28,11 +28,12 @@ COLORS = np.array(
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Run SAM 3 text prompts on macOS CPU.")
+    parser = argparse.ArgumentParser(description="Run SAM 3 text prompts on macOS.")
     parser.add_argument("input", type=Path)
     parser.add_argument("--prompt", required=True)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--threshold", type=float, default=0.5)
+    parser.add_argument("--device", choices=("auto", "cpu", "mps"), default="auto")
     return parser.parse_args()
 
 
@@ -118,9 +119,16 @@ def main():
     if not 0.0 <= args.threshold <= 1.0:
         raise ValueError("--threshold must be between 0 and 1")
 
-    model = build_sam3_image_model(device="cpu").eval()
+    if args.device == "auto":
+        device = "mps" if torch.backends.mps.is_available() else "cpu"
+    else:
+        device = args.device
+    if device == "mps" and not torch.backends.mps.is_available():
+        raise RuntimeError("MPS is not available in this PyTorch installation")
+
+    model = build_sam3_image_model(device=device).eval()
     processor = Sam3Processor(
-        model, confidence_threshold=args.threshold, device="cpu"
+        model, confidence_threshold=args.threshold, device=device
     )
     if args.input.suffix.lower() in VIDEO_SUFFIXES:
         process_video(args.input, args.output, processor, args.prompt)
