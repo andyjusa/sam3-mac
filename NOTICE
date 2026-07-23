@@ -12,6 +12,10 @@ The fork adds macOS CPU compatibility changes, dependency locking, and a
 text-prompt segmentation CLI. The mps branch additionally contains experimental
 Apple MPS support.
 
+OpenAI Codex was used to assist with implementing and validating the macOS CPU
+and MPS porting changes. This acknowledgement does not imply endorsement or
+official support by OpenAI.
+
 Original authorship and copyright notices are retained in the source tree.
 Redistribution and use are governed by the SAM License in LICENSE. Model
 checkpoints are not included and remain subject to their upstream access terms.
