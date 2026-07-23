@@ -1,5 +1,13 @@
 # SAM 3: Segment Anything with Concepts
 
+> [!IMPORTANT]
+> This is an unofficial macOS porting fork of
+> [facebookresearch/sam3](https://github.com/facebookresearch/sam3), based on
+> upstream commit [`5dd401d`](https://github.com/facebookresearch/sam3/commit/5dd401d1c5c1d5c3eedff06d41b77af824517619).
+> It is not affiliated with or endorsed by Meta. The original authorship and
+> copyright notices are preserved. This repository is distributed under the
+> [SAM License](LICENSE) and does not include model checkpoints.
+
 Meta Superintelligence Labs
 
 [Nicolas Carion](https://www.nicolascarion.com/)\*,
