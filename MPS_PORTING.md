@@ -19,6 +19,12 @@ Observed warm-run stages:
 - Text prompt and mask generation: 2.5 seconds
 - Result: one mask with score 0.865
 
+## Successful MPS inference
+
+Prompt: `truck` | Device: `mps` | Score: `0.865`
+
+![SAM 3 truck segmentation produced on Apple MPS](assets/mps_truck_result.jpg)
+
 These numbers are a feasibility measurement, not a benchmark. Unified memory
 pressure and thermal state can materially affect performance.
 
